@@ -302,6 +302,8 @@ class Table(object):
 
         doc_ids = _get_doc_ids(doc_ids, eids)
         data = self._read()
+        if doc_ids is not None and cond is not None:
+            warnings.warn("Ignoring cond: %s" % cond)
 
         if doc_ids is not None:
             # Processed document specified by id
