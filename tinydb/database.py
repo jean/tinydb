@@ -306,7 +306,7 @@ class Table(object):
             warnings.warn("Ignoring cond: %s" % cond)
 
         if doc_ids is not None:
-            # Processed document specified by id
+            # Processed documents specified by id
             for doc_id in doc_ids:
                 func(data, doc_id)
 
@@ -343,10 +343,8 @@ class Table(object):
         Increment the ID used the last time and return it
         """
 
-        current_id = self._last_id + 1
-        self._last_id = current_id
-
-        return current_id
+        self._last_id += 1
+        return self._last_id
 
     def _read(self):
         """
